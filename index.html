@@ -3,45 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя стильная страница</title>
+    <title>Моя визитка</title>
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
             color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            padding: 40px 20px;
             text-align: center;
         }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #0077ff;
+            margin-bottom: 20px;
+        }
         h1 {
-            font-size: 3em;
-            margin-bottom: 0.2em;
+            font-size: 2em;
+            margin: 0;
+        }
+        h2 {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 5px;
         }
         p {
-            font-size: 1.2em;
-            max-width: 600px;
+            font-size: 1em;
+            margin: 20px 0;
         }
-        a {
-            margin-top: 1.5em;
-            text-decoration: none;
+        .links a {
+            display: inline-block;
+            margin: 10px 8px;
+            padding: 10px 20px;
             background-color: #0077ff;
             color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
+            text-decoration: none;
+            border-radius: 8px;
             transition: background-color 0.3s ease;
         }
-        a:hover {
+        .links a:hover {
             background-color: #005dc1;
         }
     </style>
-</head> 
+</head>
 <body>
-    <h1>Привет, мир!</h1>
-    <p>Это красивая HTML-страница, созданная специально для тебя. Можно использовать как визитку, лендинг или старт для проекта.</p>
-    <a href="#">Узнать больше</a>
+    <div class="card">
+        <img class="avatar" src="https://i.pravatar.cc/150?img=3" alt="Фото профиля">
+        <h1>Твоё Имя</h1>
+        <h2>Веб-разработчик | Дизайнер</h2>
+        <p>Я создаю стильные и адаптивные сайты. Люблю чистый код, кофе и минимализм.</p>
+        <div class="links">
+            <a href="mailto:you@example.com">Email</a>
+            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        </div>
+    </div>
 </body>
-</html>a
+</html>
