@@ -23,6 +23,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             max-width: 400px;
             width: 100%;
+            margin-bottom: 40px;
         }
         .avatar {
             width: 120px;
@@ -58,6 +59,36 @@
         .links a:hover {
             background-color: #005dc1;
         }
+
+        section {
+            background-color: white;
+            padding: 40px 30px;
+            max-width: 700px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        section h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .section-button {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .section-button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -72,5 +103,12 @@
             <a href="https://github.com/yourusername" target="_blank">GitHub</a>
         </div>
     </div>
+
+    <section>
+        <h3>Обо мне</h3>
+        <p>Я занимаюсь фронтенд- и веб-разработкой с упором на простоту, эстетику и удобство использования. В свободное время пишу статьи, учусь новым технологиям и помогаю начинающим разработчикам войти в профессию.</p>
+        <a class="section-button" href="#">Связаться со мной</a>
+    </section>
 </body>
 </html>
+
