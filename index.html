@@ -3,112 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>Моя визитка</h1>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 100%;
-            margin-bottom: 40px;
-        }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #0077ff;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-        h2 {
-            font-size: 1.2em;
-            color: #666;
-            margin-top: 5px;
-        }
-        p {
-            font-size: 1em;
-            margin: 20px 0;
-        }
-        .links a {
-            display: inline-block;
-            margin: 10px 8px;
-            padding: 10px 20px;
-            background-color: #0077ff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        .links a:hover {
-            background-color: #005dc1;
-        }
-
-        section {
-            background-color: white;
-            padding: 40px 30px;
-            max-width: 700px;
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-        section h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        section p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        .section-button {
-            margin-top: 30px;
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #28a745;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        .section-button:hover {
-            background-color: #218838;
-        }
-    </style>
+    <title>AI News | Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="card">
-        <img class="avatar" src="https://i.pravatar.cc/150?img=3" alt="Фото профиля">
-        <h1>Твоё Имя</h1>
-        <h2>Веб-разработчик | Дизайнер</h2>
-        <p>Я создаю стильные и адаптивные сайты. Люблю чистый код, кофе и минимализм.</p>
-        <div class="links">
-            <a href="mailto:you@example.com">Email</a>
-            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
-            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>AI News Hub 🤖</span>
+            </div>
+            <nav>
+                <a href="#"><i class="fas fa-home"></i> Главная</a>
+                <a href="#"><i class="fas fa-newspaper"></i> Новости</a>
+                <a href="#"><i class="fas fa-user"></i> О нас</a>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <section>
-        <h3>Обо мне</h3>
-        <p>Я занимаюсь фронтенд- и веб-разработкой с упором на простоту, эстетику и удобство использования. В свободное время пишу статьи, учусь новым технологиям и помогаю начинающим разработчикам войти в профессию.</p>
-        <a class="section-button" href="#">Связаться со мной</a>
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 Будущее ИИ уже здесь</h1>
+            <p>Самые свежие новости о прорывах в искусственном интеллекте. Будь в тренде! 👨‍💻</p>
+            <a href="#" class="btn"><i class="fas fa-bell"></i> Подписаться</a>
+        </div>
     </section>
+
+    <main class="container">
+        <h2><i class="fas fa-bolt"></i> Горячие новости</h2>
+        
+        <article class="news-card">
+            <div class="news-header">
+                <span class="tag">💻 Технологии</span>
+                <h3>GPT-5 выйдет в 2025 году</h3>
+            </div>
+            <p>OpenAI подтвердила разработку новой версии. Ожидается революция в обработке естественного языка! 🗣️➡️🤖</p>
+            <div class="news-footer">
+                <span><i class="far fa-calendar"></i> 25.04.2025</span>
+                <a href="#">Читать <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="news-card">
+            <div class="news-header">
+                <span class="tag">🔬 Наука</span>
+                <h3>ИИ обнаружил новое лекарство</h3>
+            </div>
+            <p>Алгоритм DeepMind нашел потенциальное средство против рака за 3 дня вместо 3 лет! 🎉💊</p>
+            <div class="news-footer">
+                <span><i class="far fa-calendar"></i> 20.04.2025</span>
+                <a href="#">Читать <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 AI News Hub | Сделано с ❤️ и <i class="fas fa-brain"></i></p>
+        </div>
+    </footer>
 </body>
 </html>
-
