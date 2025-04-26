@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News | Динамические новости</title>
+    <title>AI News Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,25 +15,34 @@
                 <span>AI News Hub</span>
             </div>
             <nav>
-                <a href="#" class="nav-link active" data-section="news"><i class="fas fa-newspaper"></i> Новости</a>
-                <a href="#" class="nav-link" data-section="add-news"><i class="fas fa-plus"></i> Добавить</a>
-                <a href="#" class="nav-link" data-section="about"><i class="fas fa-info-circle"></i> О нас</a>
+                <a href="#" class="active"><i class="fas fa-home"></i> Главная</a>
+                <a href="#"><i class="fas fa-newspaper"></i> Новости</a>
+                <a href="#"><i class="fas fa-user"></i> О нас</a>
             </nav>
         </div>
     </header>
 
+    <section class="hero">
+        <div class="container">
+            <h1>Будущее ИИ уже здесь</h1>
+            <p>Самые свежие новости о прорывах в искусственном интеллекте</p>
+            <a href="#" class="btn" id="subscribe-btn"><i class="fas fa-bell"></i> Подписаться</a>
+        </div>
+    </section>
+
     <main class="container">
-        <!-- Динамически загружаемый контент -->
-        <div id="app-content"></div>
+        <h2><i class="fas fa-bolt"></i> Горячие новости</h2>
+        <div class="news-grid" id="news-container">
+            <!-- Новости будут загружены через JS -->
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>© <span id="current-year"></span> AI News Hub | Сделано с ❤️ и <i class="fas fa-brain"></i></p>
+            <p>© <span id="current-year">2023</span> AI News Hub | Сделано с ❤️ и <i class="fas fa-brain"></i></p>
         </div>
     </footer>
 
-    <!-- Подключаем JS -->
-    <script src="script.js" type="module"></script>
+    <script src="script.js"></script>
 </body>
 </html>
