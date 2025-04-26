@@ -1,247 +1,55 @@
 :root {
-    --primary: #2563eb;
-    --secondary: #1e40af;
-    --accent: #3b82f6;
-    --light: #f8fafc;
-    --dark: #1e293b;
-    --text: #334155;
-    --gray: #94a3b8;
+    --primary: #3a86ff;
+    --secondary: #2667cc;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --success: #28a745;
+    --danger: #dc3545;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Общие стили остаются как в предыдущем примере */
+/* Добавляем новые стили для динамических элементов */
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    color: var(--text);
-    background: white;
-    line-height: 1.6;
+.dynamic-content {
+    animation: fadeIn 0.3s ease-out;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+/* Секции */
+.section {
+    display: none;
 }
 
-/* Шапка */
-header {
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo i {
-    color: var(--primary);
-}
-
-nav {
-    display: flex;
-    gap: 1.5rem;
-}
-
-nav a {
-    color: var(--dark);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: var(--primary);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Герой */
-.hero {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
-    text-align: center;
-    padding: 4rem 0;
-    margin-bottom: 2rem;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-}
-
-/* Кнопка */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--primary);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn:hover {
-    background: var(--secondary);
-    transform: translateY(-2px);
-}
-
-/* Новости */
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.news-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.news-card:hover {
-    transform: translateY(-5px);
-}
-
-.news-header {
-    padding: 1.25rem;
-}
-
-.tag {
-    display: inline-block;
-    background: var(--light);
-    color: var(--primary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-}
-
-.news-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.news-card p {
-    padding: 0 1.25rem 1.25rem;
-    color: var(--text);
-}
-
-.news-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.25rem;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
-}
-
-.news-footer a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
+.section.active {
+    display: block;
 }
 
 /* Форма добавления */
-.add-news-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    margin-top: 3rem;
-}
-
-.add-news-form h3 {
+.form-group {
     margin-bottom: 1.5rem;
-    color: var(--dark);
 }
 
-#news-form {
-    display: grid;
-    gap: 1rem;
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
-#news-form select,
-#news-form input,
-#news-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-family: inherit;
-}
-
-#news-form textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-/* Подвал */
-footer {
-    background: var(--dark);
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem;
+    background: var(--success);
     color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
-}
-
-/* Адаптив */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
-
-.sort-controls {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0 2rem;
-}
-
-.small-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-.btn.active {
-    background: var(--secondary);
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
 }

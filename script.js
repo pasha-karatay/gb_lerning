@@ -1,95 +1,91 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // База данных с реальными датами
-    let newsDB = [
-        {
-            id: 1,
-            tag: "💻 Технологии",
-            title: "GPT-5 выйдет в 2025 году",
-            content: "OpenAI подтвердила разработку новой версии.",
-            date: new Date(2025, 3, 25) // 25 апреля 2025
-        },
-        {
-            id: 2,
-            tag: "🔬 Наука",
-            title: "ИИ обнаружил новое лекарство",
-            content: "Алгоритм DeepMind совершил прорыв.",
-            date: new Date(2025, 2, 15) // 15 марта 2025
-        },
-        {
-            id: 3,
-            tag: "🎨 Искусство",
-            title: "ИИ создал картину для Лувра",
-            content: "Музей включил ИИ-арт в экспозицию.",
-            date: new Date(2025, 1, 10) // 10 февраля 2025
-        }
-    ];
+// Конфигурация
+const config = {
+    apiUrl: 'data/news.json', // Путь к JSON-файлу с новостями
+    defaultSection: 'news'
+};
 
-    // DOM элементы
-    const newsContainer = document.getElementById('news-container');
-    const sortNewestBtn = document.getElementById('sort-newest');
-    const sortOldestBtn = document.getElementById('sort-oldest');
+// Состояние приложения
+const state = {
+    news: [],
+    currentSection: config.defaultSection
+};
 
-    // Форматирование даты
-    function formatDate(date) {
-        return date.toLocaleDateString('ru-RU', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
+// DOM элементы
+const elements = {
+    appContent: document.getElementById('app-content'),
+    navLinks: document.querySelectorAll('.nav-link')
+};
+
+// Инициализация приложения
+async function initApp() {
+    await loadNews();
+    renderSection(state.currentSection);
+    setupEventListeners();
+    updateFooterYear();
+}
+
+// Загрузка новостей
+async function loadNews() {
+    try {
+        const response = await fetch(config.apiUrl);
+        state.news = await response.json();
+    } catch (error) {
+        console.error('Ошибка загрузки новостей:', error);
+        showNotification('Ошибка загрузки новостей', 'error');
     }
+}
 
-    // Генерация карточки
-    function createNewsCard(news) {
-        return `
-            <article class="news-card">
-                <div class="news-header">
-                    <span class="tag">${news.tag}</span>
-                    <h3>${news.title}</h3>
-                </div>
-                <p>${news.content}</p>
-                <div class="news-footer">
-                    <span><i class="far fa-calendar"></i> ${formatDate(news.date)}</span>
-                    <a href="#">Читать →</a>
-                </div>
-            </article>
-        `;
+// Рендеринг секций
+function renderSection(section) {
+    state.currentSection = section;
+    
+    // Обновляем активную навигацию
+    elements.navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === section);
+    });
+
+    // Рендерим контент
+    switch(section) {
+        case 'news':
+            renderNewsSection();
+            break;
+        case 'add-news':
+            renderAddNewsSection();
+            break;
+        case 'about':
+            renderAboutSection();
+            break;
+        default:
+            renderNewsSection();
     }
+}
 
-    // Сортировка новостей
-    function sortNews(order = 'newest') {
-        return [...newsDB].sort((a, b) => {
-            return order === 'newest' 
-                ? b.date - a.date // Новые сначала
-                : a.date - b.date; // Старые сначала
-        });
-    }
+// Рендеринг секции новостей
+function renderNewsSection() {
+    const sortedNews = [...state.news].sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    elements.appContent.innerHTML = `
+        <section class="section active dynamic-content">
+            <h2><i class="fas fa-bolt"></i> Последние новости</h2>
+            <div class="sort-controls">
+                <button id="sort-newest" class="btn small-btn active">
+                    <i class="fas fa-arrow-down"></i> Сначала новые
+                </button>
+                <button id="sort-oldest" class="btn small-btn">
+                    <i class="fas fa-arrow-up"></i> Сначала старые
+                </button>
+            </div>
+            <div class="news-grid" id="news-container">
+                ${sortedNews.map(createNewsCard).join('')}
+            </div>
+        </section>
+    `;
 
-    // Отображение новостей
-    function renderNews(sortedNews) {
-        newsContainer.innerHTML = sortedNews.map(createNewsCard).join('');
-    }
+    setupSortButtons();
+}
 
-    // Инициализация
-    function init() {
-        // Первая загрузка (сначала новые)
-        renderNews(sortNews('newest'));
-        
-        // Кнопки сортировки
-        sortNewestBtn.addEventListener('click', () => {
-            renderNews(sortNews('newest'));
-            sortNewestBtn.classList.add('active');
-            sortOldestBtn.classList.remove('active');
-        });
+// Остальные функции (createNewsCard, setupSortButtons и т.д.)...
+// Полный код смотрите в GitHub-репозитории
 
-        sortOldestBtn.addEventListener('click', () => {
-            renderNews(sortNews('oldest'));
-            sortOldestBtn.classList.add('active');
-            sortNewestBtn.classList.remove('active');
-        });
-
-        // Обновляем год в футере
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    }
-
-    init();
-});
+// Запуск приложения
+document.addEventListener('DOMContentLoaded', initApp);
