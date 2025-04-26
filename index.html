@@ -12,7 +12,7 @@
         <div class="container">
             <div class="logo">
                 <i class="fas fa-robot"></i>
-                <span>AI News Hub 🤖</span>
+                <span>AI News Hub</span>
             </div>
             <nav>
                 <a href="#"><i class="fas fa-home"></i> Главная</a>
@@ -24,57 +24,25 @@
 
     <section class="hero">
         <div class="container">
-            <h1>🚀 Будущее ИИ уже здесь</h1>
-            <p>Самые свежие новости о прорывах в искусственном интеллекте. Будь в тренде! 👨‍💻</p>
+            <h1>Будущее ИИ уже здесь</h1>
+            <p>Самые свежие новости о прорывах в искусственном интеллекте. Будь в тренде!</p>
             <a href="#" class="btn"><i class="fas fa-bell"></i> Подписаться</a>
         </div>
     </section>
 
     <main class="container">
         <h2><i class="fas fa-bolt"></i> Горячие новости</h2>
-        
-        <article class="news-card">
-            <div class="news-header">
-                <span class="tag">💻 Технологии</span>
-                <h3>GPT-5 выйдет в 2025 году</h3>
-            </div>
-            <p>OpenAI подтвердила разработку новой версии. Ожидается революция в обработке естественного языка! 🗣️➡️🤖</p>
-            <div class="news-footer">
-                <span><i class="far fa-calendar"></i> 25.04.2025</span>
-                <a href="#">Читать <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </article>
-
-        <article class="news-card">
-            <div class="news-header">
-                <span class="tag">🔬 Наука</span>
-                <h3>ИИ обнаружил новое лекарство</h3>
-            </div>
-            <p>Алгоритм DeepMind нашел потенциальное средство против рака за 3 дня вместо 3 лет! 🎉💊</p>
-            <div class="news-footer">
-                <span><i class="far fa-calendar"></i> 20.04.2025</span>
-                <a href="#">Читать <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </article>
-
-        <article class="news-card">
-            <div class="news-header">
-                <span class="tag">🎨 Искусство</span>
-                <h3>ИИ создал картину для Лувра</h3>
-            </div>
-            <p>Нейросеть MidJourney v6 разработала artwork, который будет выставлен в парижском Лувре! 🖼️✨</p>
-            <div class="news-footer">
-                <span><i class="far fa-calendar"></i> 18.04.2025</span>
-                <a href="#">Читать <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </article>
+        <div class="news-grid" id="news-container">
+            <!-- Новости будут добавлены через JS -->
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2025 AI News Hub | Сделано с ❤️ и <i class="fas fa-brain"></i></p>
+            <p>© <span id="current-year">2025</span> AI News Hub | Сделано с ❤️ и <i class="fas fa-brain"></i></p>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
