@@ -26,14 +26,29 @@
         <div class="container">
             <h1>Будущее ИИ уже здесь</h1>
             <p>Самые свежие новости о прорывах в искусственном интеллекте. Будь в тренде!</p>
-            <a href="#" class="btn"><i class="fas fa-bell"></i> Подписаться</a>
+            <a href="#" class="btn" id="subscribe-btn"><i class="fas fa-bell"></i> Подписаться</a>
         </div>
     </section>
 
     <main class="container">
         <h2><i class="fas fa-bolt"></i> Горячие новости</h2>
         <div class="news-grid" id="news-container">
-            <!-- Новости будут добавлены через JS -->
+            <!-- Новости загружаются через JS -->
+        </div>
+
+        <div class="add-news-form">
+            <h3>Добавить новость</h3>
+            <form id="news-form">
+                <select id="news-tag" required>
+                    <option value="">Выберите тег</option>
+                    <option value="💻 Технологии">💻 Технологии</option>
+                    <option value="🔬 Наука">🔬 Наука</option>
+                    <option value="🎨 Искусство">🎨 Искусство</option>
+                </select>
+                <input type="text" id="news-title" placeholder="Заголовок" required>
+                <textarea id="news-content" placeholder="Текст новости" required></textarea>
+                <button type="submit" class="btn"><i class="fas fa-plus"></i> Добавить</button>
+            </form>
         </div>
     </main>
 
